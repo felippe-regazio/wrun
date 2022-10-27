@@ -9,7 +9,7 @@
   "homepage": "https://github.com/felippe-regazio/wrun#readme",
   "scripts": {
     "build": "npm run min && node ./test",
-    "min": "npx terser --compress --mangle -- wrun.js >> ./wrun.min.js"
+    "min": "npx terser --compress --mangle -- wrun.js > ./wrun.min.js"
   },
   "repository": {
     "type": "git",
