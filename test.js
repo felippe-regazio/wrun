@@ -1,4 +1,4 @@
-const wrun = require('./wrun');
+const wrun = require('./wrun.min.js');
 
 if (typeof wrun !== 'function') {
   throw 'wrun must export a function by default';

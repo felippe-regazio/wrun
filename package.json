@@ -8,7 +8,8 @@
   "keywords": [ "javascript", "workers", "service", "js" ],
   "homepage": "https://github.com/felippe-regazio/wrun#readme",
   "scripts": {
-    "test": "node ./test"
+    "test": "npm run min && node ./test",
+    "min": "npx terser --compress --mangle -- wrun.js >> ./wrun.min.js"
   },
   "repository": {
     "type": "git",
