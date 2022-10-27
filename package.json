@@ -1,0 +1,20 @@
+{
+  "name": "wrun",
+  "version": "1.0.0",
+  "description": "Dynamically run a function as a background Worker on the client side",
+  "main": "wrun.js",
+  "license": "MIT",
+  "author": "Felippe Regazio",
+  "keywords": [ "javascript", "workers", "service", "js" ],
+  "homepage": "https://github.com/felippe-regazio/wrun#readme",
+  "scripts": {
+    "test": "node ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felippe-regazio/wrun.git"
+  },
+  "bugs": {
+    "url": "https://github.com/felippe-regazio/wrun/issues"
+  }
+}
