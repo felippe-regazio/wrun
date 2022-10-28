@@ -20,7 +20,7 @@
       <h1>wrun</h1>
   
       <p>
-        The <code>wrun</code> is a just-in-time multithread emulator for client side JS. It allows you to dynamically run a function inside a Web Worker on the client side, without the needing of a dedicated file. This means that you can execute a JS function as a subprocess, avoiding the slow down, break or freeze of the main thread. This lib is also minimal: 811 bytes.
+        The <code>wrun</code> allows you to dynamically run a function inside a Web Worker on the client side, without the needing of a dedicated file. This means that you can execute a JS function as a subprocess, avoiding the slow down, break or freeze the main thread. This lib is also minimal: 811 bytes.
       </p>
   
       <p><strong>For installation, usage and general docs:</strong></p>
@@ -46,11 +46,10 @@
       </p>
 
       <p>
-        You can observe that when you run this function normaly, the current thread gets freezed for
-        some seconds, but when you run the same function over 
-        <code>wrun</code> the main thread does not slows down because <code>wrun</code> will be 
-        executing our function in another thread/subprocess. You can even click multiple times on "Run with wrun"
-        without harm your main thread.
+        You can observe that when you run this function normally, the current thread gets freezed for
+        a few seconds, but when you run the same function over <code>wrun</code> the main thread does 
+        not slows down because <code>wrun</code> will be executing our function in another thread/subprocess. 
+        You can even click multiple times on "Run with wrun" without harm your main thread.
       </p>
 
       <button onclick="runNormally()">Run normally</button>
