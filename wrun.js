@@ -1,5 +1,5 @@
 function wrun(fn, wtype = 'Worker') {
-  var result = (worker, error) => ({ worker, error });  
+  const result = (worker, error) => ({ worker, error });  
 
   if (typeof window === 'undefined') {
     return result(null, {
@@ -30,9 +30,9 @@ function wrun(fn, wtype = 'Worker') {
   }  
 
   try {
-    var blob = new window.Blob([ `(${fn.toString()})()` ], { type: 'application/javascript' });
-    var swObjectURL = window.URL.createObjectURL(blob);
-    var worker = new window[wtype](swObjectURL);
+    const blob = new window.Blob([ `(${fn.toString()})()` ], { type: 'application/javascript' });
+    const swObjectURL = window.URL.createObjectURL(blob);
+    const worker = new window[wtype](swObjectURL);
 
     return result(worker, false);
   } catch(error) {
