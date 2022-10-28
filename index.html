@@ -42,10 +42,15 @@
       <p>
         To know if the runtime is ok, look at the counter here 
         which is being automatically incremented by 1 sec. If the counter gets freezed, means the 
-        main thread gots freezed. You can observe that when running the same function over 
-        <code>wrun</code> the main thread does not slow down because <code>wrun</code> will be 
-        executing our function in another thread. You can even click multiple times on "Run with wrun"
-        without harm your main thread.     
+        main thread gots freezed.     
+      </p>
+
+      <p>
+        You can observe that when you run this function normaly, the current thread gets freezed for
+        some seconds, but when you run the same function over 
+        <code>wrun</code> the main thread does not slows down because <code>wrun</code> will be 
+        executing our function in another thread/subprocess. You can even click multiple times on "Run with wrun"
+        without harm your main thread.
       </p>
 
       <button onclick="runNormally()">Run normally</button>
