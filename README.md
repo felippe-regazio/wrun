@@ -1,12 +1,12 @@
 # wrun
 
-Dynamically run a function inside a Web Worker on the client side, without the needing of a dedicated file. This means that you can execute a JS function as a subprocess, avoiding the slow down, break or freeze of the main thread. This lib is also minimal: 811 bytes.
+This lib allows you to dynamically run a function inside a Web Worker on the client side, without the needing of a dedicated file. This means that you can execute a JS function as a subprocess, avoiding the slow down, break or freeze of the main thread. With this, you can emulate multithreading on your  client side JavaScript code. This lib is also minimal: 811 bytes.
 
 ## Reason
 
 To create a Web Worker you commonly need a new `.js` file and a URL that points to this file, then you load this file as a worker: `const worker = new Worker('http://site.com/your-file.js');`. 
 
-With `wrun` you can dinamically run a function inside a dinamic `Worker` directly from the current runtime, without the needing of a thirty part file: `wrun(function() {});`. This is way easier to handle dinamic subprocess.
+With `wrun` you can dinamically run a function inside a `Worker` as a just in time subprocess execution, without the needing of a thirty part file: `wrun(function() {});`. This make way easier to handle background executions and dynamic subprocess.
 
 ## Getting started
 
@@ -112,6 +112,6 @@ The `wrun` can return different kind of errors, but always using this pattern.
 
 ## Use cases
 
-The use cases are the same of any Web Worker. Since Workers run on their own thread, they wont harm the main thread performance. That is good for highly intensive processing tasks, to load scripts on background, parallelize subtasks without compromise the runtime, etc. You can also use it to have access to Worker-Only APIs like caches of global fetch events, for example.
+The use cases for `wrun` are the same of any Web Worker, but with the benefit of "just in time" execution. Since Workers run on their own thread, they wont harm the main thread performance. That is good for highly intensive processing tasks, to load scripts on background, wasm tasks, parallelism, heavy subtasks and any kind of thing that you need to run without directly compromise the application performance. You can also use it to have access to Worker-Only APIs like `caches api` or `global fetch events`, for example.
 
 # Example

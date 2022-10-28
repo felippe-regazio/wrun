@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>wRun Docs</title>
+  
+  <link 
+    href="https://unpkg.com/plume-css@1.0.13/lib/plume-all.css" 
+    rel="stylesheet" rel="preload" as="style" media="all" defer
+  >
+
+  <!-- Adds wrun -->
+  <script src="./wrun.js" type="application/javascript"></script>
+</head>
+<body class="plume">
+  <main class="pm-container">
+    <div>
+      <h1>wrun</h1>
+  
+      <p>
+        The <code>wrun</code> allows you to dynamically run a function inside a Web Worker on the client side, without the needing of a dedicated file. This means that you can execute a JS function as a subprocess, avoiding the slow down, break or freeze of the main thread. This lib is also minimal: 811 bytes.
+      </p>
+  
+      <p><strong>For installation, usage and general docs:</strong></p>
+      <button class="pm-btn-primary">Docs / Github</button>
+    </div>
+
+    <div>
+      <h2>Demo</h2>
+
+      <p>
+        Lets run a function that keeps calculating the seconds distance between two Dates inside
+        a while for a given interval of time; 5 seconds by default. This will drastically slow down 
+        the current thread processing power. The function:
+      </p>
+
+      <pre>
+      <code id="fn-demo"></code></pre>
+
+      <p>
+        To know if the runtime is ok, look at the counter here 
+        which is being automatically incremented by 1 sec. If the counter gets freezed, means the 
+        main thread gots freezed. You can observe that when running the same function over 
+        <code>wrun</code> the main thread does not slow down because <code>wrun</code> will be 
+        executing our function in another thread. You can even click multiple times on "Run with wrun"
+        without harm your main thread.     
+      </p>
+
+      <button onclick="runNormally()">Run normally</button>
+      <button onclick="runWithWRun()" class="pm-btn-primary">Run with wrun</button>
+      <p>Runtime check: <span id="runtime-check">0</span><br/>Open your console and check the output</p>
+
+      <script>
+        /** DEMO Scripts **/
+
+      function sleep(n = 5) {
+        console.log(`The current scope is ${this.toString()}. Processing...`);
+        const started = new Date().getTime();
+        
+        let secs = 0;
+
+        while(secs <= n) {
+          secs = Math.abs((new Date().getTime() - started) / 1000);
+        }
+
+        console.log('Done');
+      }
+
+        function runNormally() {
+          sleep();
+        }
+
+        function runWithWRun() {
+          wrun(sleep);
+        }
+      </script>    
+    </div>
+
+    <div>
+      <h2>
+        About
+      </h2>
+
+      <p>
+        wRun is a lib written by Felippe Regazio
+      </p>
+    </div>
+  </main>
+
+  <script>
+    setInterval(() => {
+      const span = document.getElementById('runtime-check');
+      span.textContent = Number(span.textContent) + 1;
+    }, 1000);
+
+    document.getElementById('fn-demo').textContent = sleep.toString();
+    console.log(sleep.toString())
+  </script>
+</body>
+</html>
