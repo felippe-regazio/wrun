@@ -13,7 +13,7 @@ With `wrun` you can dinamically run a function inside a `Worker` as a just in ti
 Download, or install `wrun`:
 
 ```sh
-npm install wrun
+npm install wrun-fn
 ```
 
 Then import, require or directly add it:
@@ -21,13 +21,13 @@ Then import, require or directly add it:
 CommonJS
 
 ```js
-const wrun = require('wrun');
+const wrun = require('wrun-fn');
 ```
 
 ES6 Modules
 
 ```js
-import wrun from 'wrun';
+import wrun from 'wrun-fn';
 ```
 
 Browser

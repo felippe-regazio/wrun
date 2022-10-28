@@ -1,5 +1,5 @@
 {
-  "name": "wrun",
+  "name": "wrun-fn",
   "version": "1.0.0",
   "description": "Dynamically run a function as a background Worker on the client side",
   "main": "wrun.js",
