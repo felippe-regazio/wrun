@@ -115,3 +115,5 @@ The `wrun` can return different kind of errors, but always using this pattern.
 The use cases for `wrun` are the same of any Web Worker, but with the benefit of "just in time" execution. Since Workers run on their own thread, they wont harm the main thread performance. That is good for highly intensive processing tasks, to load scripts on background, wasm tasks, parallelism, heavy subtasks and any kind of thing that you need to run without directly compromise the application performance. You can also use it to have access to Worker-Only APIs like `caches api` or `global fetch events`, for example.
 
 # Example
+
+You can see `wrun` working here: https://felippe-regazio.github.io/wrun/
